@@ -11,5 +11,7 @@ debug:
 	$(DB) ./$(EXEC)
 valgrind:
 	valgrind $(VFLAGS) ./$(EXEC)
+clear:
+	rm -rf $(EXEC)
 FORCE:
 
