@@ -7,6 +7,12 @@
 #include <iterator>
 #include <vector>
 
+static inline void full_delete(void *&ptr)
+{
+	free(ptr);
+	ptr = 0;
+}
+
 using namespace std;
 
 #endif
