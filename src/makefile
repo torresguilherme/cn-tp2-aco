@@ -12,7 +12,7 @@ test:
 debug:
 	$(DB) ./$(EXEC)
 valgrind:
-	valgrind $(VFLAGS) ./$(EXEC)
+	$(VFLAGS)
 clear:
 	rm -rf $(EXEC)
 FORCE:
