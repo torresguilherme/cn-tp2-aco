@@ -9,6 +9,10 @@ class Vertex
 	int demand;
 
 	Vertex(int, int, int, int);
+	int get_x();
+	int get_y();
+	int get_capacity();
+	int get_demand();
 };
 
 class Data
@@ -17,6 +21,9 @@ class Data
 	int n_vertex;
 	int p_medians;
 	vector<Vertex> points;
+	vector<vector<double>> distances;
 
 	Data(char*);
 };
+
+double get_distance(Vertex, Vertex);
