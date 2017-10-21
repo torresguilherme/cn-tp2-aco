@@ -24,6 +24,8 @@ class Data
 	vector<vector<double>> distances;
 
 	Data(char*);
+	int get_p();
+	int get_vertex_number();
+	Vertex& get_point(int);
+	double get_distance(int, int);
 };
-
-double get_distance(Vertex, Vertex);

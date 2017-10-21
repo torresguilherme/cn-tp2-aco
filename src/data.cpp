@@ -61,17 +61,31 @@ Data::Data(char* filename)
 		vector<double> next;
 		for(int j = 0; j < n_vertex; j++)
 		{
-			next.push_back(get_distance(points[i], points[j]));
+			next.push_back(sqrt(pow(points[i].get_x() - points[j].get_x(), 2) + pow(points[i].get_y() - points[j].get_y(), 2)));
 		}
 
 		distances.push_back(next);
 	}
 
-
 	fclose(f);
 }
 
-double get_distance(Vertex a, Vertex b)
+int Data::get_p()
 {
-	return sqrt(pow(a.get_x() - b.get_x(), 2) + pow(a.get_y() - b.get_y(), 2));
+	return p_medians;
+}
+
+int Data::get_vertex_number()
+{
+	return n_vertex;
+}
+
+Vertex& Data::get_point(int a)
+{
+	return points[a];
+}
+
+double Data::get_distance(int a, int b)
+{
+	return distances[a][b];
 }
