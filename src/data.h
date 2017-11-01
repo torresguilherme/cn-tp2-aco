@@ -20,12 +20,15 @@ class Data
 	public:
 	int n_vertex;
 	int p_medians;
+	int decay_rate;
 	vector<Vertex> points;
 	vector<vector<double>> distances;
+	vector<vector<double>> pheromones;
 
-	Data(char*);
+	Data(char*, double);
 	int get_p();
 	int get_vertex_number();
 	Vertex& get_point(int);
 	double get_distance(int, int);
+	double get_pheromone(int, int);
 };

@@ -28,8 +28,9 @@ int Vertex::get_demand()
 	return demand;
 }
 
-Data::Data(char* filename)
+Data::Data(char* filename, double new_decay)
 {
+	decay_rate = new_decay;
 	FILE* f = fopen(filename, "r");
 	if(f == NULL)
 	{
@@ -59,12 +60,15 @@ Data::Data(char* filename)
 	for(int i = 0; i < n_vertex; i++)
 	{
 		vector<double> next;
+		vector<double> next2;
 		for(int j = 0; j < n_vertex; j++)
 		{
 			next.push_back(sqrt(pow(points[i].get_x() - points[j].get_x(), 2) + pow(points[i].get_y() - points[j].get_y(), 2)));
+			next2.push_back(0.5);
 		}
 
 		distances.push_back(next);
+		pheromones.push_back(next2);
 	}
 
 	fclose(f);
@@ -88,4 +92,9 @@ Vertex& Data::get_point(int a)
 double Data::get_distance(int a, int b)
 {
 	return distances[a][b];
+}
+
+double Data::get_pheromone(int v1, int v2)
+{
+	return pheromones[v1][v2];
 }
