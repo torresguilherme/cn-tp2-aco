@@ -98,3 +98,14 @@ double Data::get_pheromone(int v1, int v2)
 {
 	return pheromones[v1][v2];
 }
+
+void Data::decay()
+{
+	for(int i = 0; i < n_vertex; i++)
+	{
+		for(int j = 0; j < n_vertex; j++)
+		{
+			pheromones[i][j] *= decay_rate;
+		}
+	}
+}

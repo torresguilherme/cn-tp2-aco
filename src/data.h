@@ -1,3 +1,6 @@
+#ifndef DATA_H_
+#define DATA_H_
+
 #include "headers.h"
 
 class Vertex
@@ -31,4 +34,7 @@ class Data
 	Vertex& get_point(int);
 	double get_distance(int, int);
 	double get_pheromone(int, int);
+	void decay();
 };
+
+#endif
