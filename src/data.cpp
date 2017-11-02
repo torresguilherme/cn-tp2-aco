@@ -94,6 +94,7 @@ Data::Data(char* filename, double new_decay)
 		distances.push_back(next);
 		pheromones.push_back(next2);
 		median_pheromones.push_back(0.5);
+		is_median.push_back(false);
 	}
 
 	fclose(f);
@@ -118,5 +119,13 @@ void Data::decay()
 			pheromones[i][j] *= decay_rate;
 		}
 		median_pheromones[i] *= decay_rate;
+	}
+}
+
+void Data::reset_medians()
+{
+	for(int i = 0; i < n_vertex; i++)
+	{
+		is_median[i] = false;
 	}
 }

@@ -33,6 +33,7 @@ int main(int argc, char**argv)
 		}
 		train_data.decay();
 		put_pheromone(train_data, ants, PENALTY_MODIFIER, UPDATE_MODIFIER);
+		train_data.reset_medians();
 	}
 
 	return 0;

@@ -29,11 +29,13 @@ class Data
 	vector<vector<double>> distances;
 	vector<vector<double>> pheromones;
 	vector<double> median_pheromones;
+	vector<bool> is_median;
 
 	Data(char*, double);
 	int get_p();
 	int get_vertex_number();
 	void decay();
+	void reset_medians();
 };
 
 #endif

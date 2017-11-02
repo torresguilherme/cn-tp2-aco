@@ -8,6 +8,7 @@ Ant::Ant()
 void Ant::make_path(Data& train_data)
 {
 	path.push_back(choose_median(train_data));
+	train_data.is_median[path[0]] = true;
 	path.push_back(choose_client(train_data, path[0]));
 	distance = train_data.distances[path[0]][path[1]];
 }
@@ -39,16 +40,22 @@ int Ant::choose_client(Data& train_data, int median)
 	double sum = 0;
 	for(int i = 0; i < train_data.pheromones[median].size(); i++)
 	{
-		sum += train_data.pheromones[median][i];
+		if(!train_data.is_median[i])
+		{	
+			sum += train_data.pheromones[median][i];
+		}
 	}
 
 	double choice = frand(0, sum);
 	for(int i = 0; i < train_data.pheromones[median].size(); i++)
 	{
-		choice -= train_data.pheromones[median][i];
-		if(choice <= 0)
-		{
-			return i;
+		if(!train_data.is_median[i])
+		{	
+			choice -= train_data.pheromones[median][i];
+			if(choice <= 0)
+			{
+				return i;
+			}
 		}
 	}
 

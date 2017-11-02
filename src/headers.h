@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <cmath>
 #include <cfloat>
+#include <unistd.h>
 #include <iterator>
 #include <vector>
 
