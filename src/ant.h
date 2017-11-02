@@ -13,7 +13,6 @@ class Ant
 	Ant();
 	void make_path(Data&);
 	int path_choice(Data&);
-	void set_fitness();
 	void put_pheromone(Data&);
 };
 
