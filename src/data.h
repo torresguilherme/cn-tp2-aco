@@ -5,12 +5,12 @@
 
 class Vertex
 {
-	public:
 	int pos_x;
 	int pos_y;
 	int capacity;
 	int demand;
 
+	public:
 	Vertex(int, int, int, int);
 	int get_x();
 	int get_y();
@@ -20,20 +20,19 @@ class Vertex
 
 class Data
 {
-	public:
 	int n_vertex;
 	int p_medians;
-	int decay_rate;
+	double decay_rate;
+
+	public:
 	vector<Vertex> points;
 	vector<vector<double>> distances;
 	vector<vector<double>> pheromones;
+	vector<double> median_pheromones;
 
 	Data(char*, double);
 	int get_p();
 	int get_vertex_number();
-	Vertex& get_point(int);
-	double get_distance(int, int);
-	double get_pheromone(int, int);
 	void decay();
 };
 

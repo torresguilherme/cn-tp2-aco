@@ -12,8 +12,10 @@ class Ant
 
 	Ant();
 	void make_path(Data&);
-	int path_choice(Data&);
-	void put_pheromone(Data&);
+	int choose_median(Data&);
+	int choose_client(Data&, int);
 };
 
+void put_pheromone(Data&, Ant*, int, double);
+double frand(double, double);
 #endif

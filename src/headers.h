@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
+#include <cfloat>
 #include <iterator>
 #include <vector>
 

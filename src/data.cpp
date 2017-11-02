@@ -57,8 +57,32 @@ Data::Data(char* filename, double new_decay)
 		points.push_back(new_vertex);
 	}
 
+	double min_x = DBL_MAX;
+	double min_y = DBL_MAX;
+	double max_x = 0;
+	double max_y = 0;
 	for(int i = 0; i < n_vertex; i++)
 	{
+		if(points[i].get_x() < min_x)
+		{
+			min_x = points[i].get_x();
+		}
+
+		if(points[i].get_y() < min_y)
+		{
+			min_y = points[i].get_y();
+		}
+
+		if(points[i].get_x() > max_x)
+		{
+			max_x = points[i].get_x();
+		}
+
+		if(points[i].get_y() > max_y)
+		{
+			max_y = points[i].get_y();
+		}
+
 		vector<double> next;
 		vector<double> next2;
 		for(int j = 0; j < n_vertex; j++)
@@ -69,6 +93,7 @@ Data::Data(char* filename, double new_decay)
 
 		distances.push_back(next);
 		pheromones.push_back(next2);
+		median_pheromones.push_back(0.5);
 	}
 
 	fclose(f);
@@ -84,21 +109,6 @@ int Data::get_vertex_number()
 	return n_vertex;
 }
 
-Vertex& Data::get_point(int a)
-{
-	return points[a];
-}
-
-double Data::get_distance(int a, int b)
-{
-	return distances[a][b];
-}
-
-double Data::get_pheromone(int v1, int v2)
-{
-	return pheromones[v1][v2];
-}
-
 void Data::decay()
 {
 	for(int i = 0; i < n_vertex; i++)
@@ -107,5 +117,6 @@ void Data::decay()
 		{
 			pheromones[i][j] *= decay_rate;
 		}
+		median_pheromones[i] *= decay_rate;
 	}
 }
