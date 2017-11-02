@@ -22,5 +22,18 @@ int main(int argc, char**argv)
 	Data train_data(DataFileName, DECAY_RATE);
 	cout<<"boop"<<endl;
 
+	// treinamento
+	int ant_number = train_data.get_vertex_number() - train_data.get_p() + PLUS_ANTS;
+	Ant ants[ant_number];
+	for(int i = 0; i < ITERATIONS; i++)
+	{
+		for(int j = 0; j < ant_number; j++)
+		{
+			ants[j].make_path(train_data);
+		}
+		train_data.decay();
+		put_pheromone(train_data, ants, PENALTY_MODIFIER, UPDATE_MODIFIER);
+	}
+
 	return 0;
 }
