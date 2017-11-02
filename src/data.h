@@ -30,6 +30,8 @@ class Data
 	vector<vector<double>> pheromones;
 	vector<double> median_pheromones;
 	vector<bool> is_median;
+	vector<bool> is_visited;
+	int medians;
 
 	Data(char*, double);
 	int get_p();

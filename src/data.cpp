@@ -31,6 +31,7 @@ int Vertex::get_demand()
 Data::Data(char* filename, double new_decay)
 {
 	decay_rate = new_decay;
+	medians = 0;
 	FILE* f = fopen(filename, "r");
 	if(f == NULL)
 	{
@@ -95,6 +96,7 @@ Data::Data(char* filename, double new_decay)
 		pheromones.push_back(next2);
 		median_pheromones.push_back(0.5);
 		is_median.push_back(false);
+		is_visited.push_back(false);
 	}
 
 	fclose(f);
@@ -124,8 +126,9 @@ void Data::decay()
 
 void Data::reset_medians()
 {
+	medians = 0;
 	for(int i = 0; i < n_vertex; i++)
 	{
-		is_median[i] = false;
+		is_visited[i] = false;
 	}
 }
