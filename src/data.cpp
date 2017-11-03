@@ -6,6 +6,7 @@ Vertex::Vertex(int new_x, int new_y, int new_c, int new_d)
 	pos_y = new_y;
 	capacity = new_c;
 	demand = new_d;
+	capacity_left = capacity;
 }
 
 int Vertex::get_x()
@@ -129,6 +130,20 @@ void Data::reset_medians()
 	medians = 0;
 	for(int i = 0; i < n_vertex; i++)
 	{
+		points[i].capacity_left = points[i].get_capacity();
 		is_visited[i] = false;
+		is_median[i] = false;
+	}
+}
+
+void Data::full_reset()
+{
+	reset_medians();
+	for(int i = 0; i < n_vertex; i++)
+	{
+		for(int j = 0; j < n_vertex; j++)
+		{
+			pheromones[i][j] = 0.5;
+		}
 	}
 }

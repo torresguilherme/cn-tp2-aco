@@ -11,6 +11,8 @@ class Vertex
 	int demand;
 
 	public:
+	int capacity_left;
+
 	Vertex(int, int, int, int);
 	int get_x();
 	int get_y();
@@ -38,6 +40,7 @@ class Data
 	int get_vertex_number();
 	void decay();
 	void reset_medians();
+	void full_reset();
 };
 
 #endif
