@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.8.22)  19 OCT 2017 10:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.8.22)  6 NOV 2017 17:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -907,23 +907,38 @@ ABD: EveryShipout initializing macros
 Package pgfplots notification 'compat/show suggested version=true': you might b
 enefit from \pgfplotsset{compat=1.14} (current compat level: 1.9).
 
-[1
+LaTeX Font Info:    Try loading font information for U+msa on input line 20.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 20.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./doc.aux) ) 
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./doc.aux) ) 
 Here is how much of TeX's memory you used:
- 22372 strings out of 494902
- 584067 string characters out of 6179891
- 746704 words of memory out of 5000000
- 25301 multiletter control sequences out of 15000+600000
- 4709 words of font info for 16 fonts, out of 8000000 for 9000
+ 22432 strings out of 494902
+ 584901 string characters out of 6179891
+ 749704 words of memory out of 5000000
+ 25336 multiletter control sequences out of 15000+600000
+ 14453 words of font info for 44 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 69i,5n,98p,718b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/guilh
-erme/.texlive2016/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk>
-Output written on doc.pdf (1 page, 3522 bytes).
+ 69i,6n,98p,718b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/g
+uilherme/.texlive2016/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </h
+ome/guilherme/.texlive2016/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk
+> </home/guilherme/.texlive2016/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.
+600pk> </home/guilherme/.texlive2016/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm
+1200.600pk> </home/guilherme/.texlive2016/texmf-var/fonts/pk/ljfour/jknappen/ec
+/ecrm1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb>
+Output written on doc.pdf (2 pages, 66477 bytes).
 PDF statistics:
- 23 PDF objects out of 1000 (max. 8388607)
- 11 compressed objects within 1 object stream
+ 200 PDF objects out of 1000 (max. 8388607)
+ 35 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

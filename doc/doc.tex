@@ -14,5 +14,37 @@
 \pgfplotsset{compat=1.9}
 
 \begin{document}
-asdoubhasoud
+\title{Computação Natural - TP2\\Ant Colony Optimization}
+\author{Guilherme Torres\\Departamento de Ciência da Computação - UFMG}
+\date{}
+\maketitle
+
+\section{Introdução}
+
+\section{Implementação}
+
+\subsection{Fundamentação}
+
+O funcionamento de uma otimização de colônia de formigas, modelada especificamente para esse problema, pode ser descrito, no plano geral, pelos seguintes passos:
+
+\begin{enumerate}
+	\item Inicializa as formigas e uma matriz de feromônios n x n, com o valor 0.5 em cada posição, mais um vetor de feromônios de tamanho n para escolher as medianas;
+	\item Distribui as formigas entre exatamente p medianas, escolhendo a probabilidade de acordo com o feromônio no vetor;
+	\item Para cada formiga, escolha um cliente para a mediana que ela está, em função da matriz de feromônios;
+	\item Encontre a fitness bruta da solução, calculando o somatório da distância que todas as formigas andaram;
+	\item Caso haja um excedente à capacidade de uma mediana, aplique uma penalidade (capacidade excedida $* P$, sendo $P$ um modificador de penalidade) à fitness;
+	\item Deixe no vetor e matriz de feromônios feedback positivo ou negativo, dependendo se a solução encontrada foi melhor do que a melhor obtida até o momento ou não;
+	\item Imprima a média das fitness e a melhor encontrada até o momento;
+	\item Repita desde o passo 2, até que o número $N$ de iterações seja atingido;
+	\item Termine a execução com a melhor fitness encontrada.
+\end{enumerate}
+
+\subsection{Decisões de implementação}
+
+\section{Experimentos}
+
+\section{Conclusões}
+
+\section{Referências}
+
 \end{document}
