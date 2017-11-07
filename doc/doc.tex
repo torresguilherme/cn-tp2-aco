@@ -21,14 +21,26 @@
 
 \section{Introdução}
 
+O objetivo deste trabalho foi formular um algoritmo para resolver heuristicamente o problema das p-medianas em um gráfico de entrada com posições dos vértices especificadas. Dados n vértices, o problema insiste em escolher p medianas entre eles e ligá-las a outros vértices como clientes, minimizando o somatório das distâncias totais da mediana ao cliente. Além disso, cada cliente tem uma demanda e cada mediana tem uma capacidade. Em uma solução viável, a demanda de todos os clientes de uma mediana não pode superar a sua capacidade.
+
+A heurística usada foi a otimização por colônia de formigas. Esta técnica foi introduzida nos anos 90 e é baseada na forma de comunicação que as formigas estabelecem entre si, dentro de um formigueiro. Cada um dos membros da colônia procura no objetivo, e, ao achar um caminho mais favorável, a quantidade de feromônio neste caminho se torna mais densa por consequência, fazendo com que as formigas tenham uma convergência para rotas mais curtas dentro do formigueiro. Esse paradigma pode ser modelado de várias formas dependendo do problema, como vamos ver a seguir.
+
+O algoritmo foi implementado em C++11, na pasta src/. Instruções para compilar e executar o teste estão explicitadas no arquivo README.md. O programa também pode ser encontrado no repositório:
+
+\texttt{https://github.com/torresguilherme/cn-tp2-aco}.
+
 \section{Implementação}
 
-\subsection{Fundamentação}
+O problema das p-medianas é um problema de minimização. Sabendo disso, a escolha foi guiar as formigas para percorrer a menor distância possível para encontrar os clientes, partindo de um ponto imaginário inicial (a distância desse "ponto" até as medianas é desprezada), escolhendo medianas e, em seguida, os seus clientes, sempre guiadas pelo feromônio. Para ocupar todos os espaços no grafo, as formigas foram fixadas em $n - p$.
+
+Soluções ilegais (com demanda excedente perante a capacidade de algumas medianas) são permitidas no algoritmo, porém sofrem uma penalidade em sua fitness. Essa penalidade raramente as deixam em condições de serem escolhidas dentre as melhores, porém não permitem que sua fitness seja extremamente ruim (isso pode gerar um excesso de feedback negativo em caminhos potencialmente bons no grafo!)
+
+\subsection{O algoritmo}
 
 O funcionamento de uma otimização de colônia de formigas, modelada especificamente para esse problema, pode ser descrito, no plano geral, pelos seguintes passos:
 
 \begin{enumerate}
-	\item Inicializa as formigas e uma matriz de feromônios n x n, com o valor 0.5 em cada posição, mais um vetor de feromônios de tamanho n para escolher as medianas;
+	\item Inicializa as $n - p$ formigas e uma matriz de feromônios n x n, com o valor 0.5 em cada posição, mais um vetor de feromônios de tamanho n para escolher as medianas;
 	\item Distribui as formigas entre exatamente p medianas, escolhendo a probabilidade de acordo com o feromônio no vetor;
 	\item Para cada formiga, escolha um cliente para a mediana que ela está, em função da matriz de feromônios;
 	\item Encontre a fitness bruta da solução, calculando o somatório da distância que todas as formigas andaram;
@@ -39,7 +51,7 @@ O funcionamento de uma otimização de colônia de formigas, modelada especifica
 	\item Termine a execução com a melhor fitness encontrada.
 \end{enumerate}
 
-\subsection{Decisões de implementação}
+\subsection{Parâmetros do algoritmo}
 
 \section{Experimentos}
 

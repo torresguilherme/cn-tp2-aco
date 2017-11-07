@@ -17,7 +17,6 @@ int main(int argc, char**argv)
 	double DECAY_RATE = atof(argv[3]);
 
 	Data train_data(DataFileName, DECAY_RATE);
-	cout<<"boop"<<endl;
 
 	// treinamento
 	int ant_number = train_data.get_vertex_number() - train_data.get_p();

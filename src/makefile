@@ -9,9 +9,13 @@ DECAY = 0.8
 
 all: FORCE
 	$(CC) $(CFLAGS) $(SOURCE) -o $(EXEC)
-test:
-	./$(EXEC) ../data/SJC1.dat $(P_MODIFIER) $(DECAY)
 
+test1:
+	./$(EXEC) ../data/SJC1.dat $(P_MODIFIER) $(DECAY)
+test2:
+	./$(EXEC) ../data/SJC2.dat $(P_MODIFIER) $(DECAY)
+test3:
+	./$(EXEC) ../data/SJC3b.dat $(P_MODIFIER) $(DECAY)
 valgrind:
 	$(VFLAGS)
 clear:

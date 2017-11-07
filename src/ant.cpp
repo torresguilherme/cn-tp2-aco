@@ -84,18 +84,18 @@ int Ant::choose_client(Data& train_data, int median)
 	double sum = 0;
 	for(int i = 0; i < train_data.pheromones[median].size(); i++)
 	{
-		if(!train_data.is_visited[i])
+		if(!train_data.is_visited[i] && i != median)
 		{	
-			sum += train_data.pheromones[median][i] * (1.0/train_data.distances[median][i]);
+			sum += train_data.pheromones[median][i] * (1.0/(train_data.distances[median][i] + 1));
 		}
 	}
 
 	double choice = frand(0, sum);
 	for(int i = 0; i < train_data.pheromones[median].size(); i++)
 	{
-		if(!train_data.is_visited[i])
+		if(!train_data.is_visited[i] && i != median)
 		{	
-			choice -= train_data.pheromones[median][i] * (1.0/train_data.distances[median][i]);
+			choice -= train_data.pheromones[median][i] * (1.0/(train_data.distances[median][i]));
 			if(choice <= 0)
 			{
 				return i;
